@@ -1,2 +1,1 @@
-# Ureeka Website Frontend
-Work in Progress
+# Ureeka Website Frontend (W.I.P)
