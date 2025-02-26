@@ -1,2 +1,2 @@
 # Ureeka Website Frontend
-Lorem Ipsum Dolor Amet
+Work in Progress
