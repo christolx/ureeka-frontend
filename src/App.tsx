@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 // import { useState } from 'react';
 // import {Button} from "@/components/ui/button.tsx";
 
@@ -13,8 +14,9 @@ const App = () => {
         //         Clicked me {count} times.
         //     </Button>
         // </div>
-        <main className='relative min-h-screen w-screen overflow-x-hidden'>
+        <main className='relative min-h-screen w-screen overflow-x-hidden bg-[#FAF5EF]'>
             <Navbar />
+            <Hero />
         </main>
     );
 }
