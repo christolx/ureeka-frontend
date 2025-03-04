@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -86,3 +87,29 @@ const App = () => {
 };
 
 export default App;
+=======
+import './App.css';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+// import { useState } from 'react';
+// import {Button} from "@/components/ui/button.tsx";
+
+const App = () => {
+    // const [count, setCount] = useState(0);
+
+    return (
+        // <div className="flex flex-col items-center justify-center min-h-screen">
+        //     <h1 className="text-3xl font-bold mb-4">Food Website</h1>
+        //     <Button onClick={()=>setCount(dynamicNumber=>dynamicNumber+1)}>
+        //         Clicked me {count} times.
+        //     </Button>
+        // </div>
+        <main className='relative min-h-screen w-screen overflow-x-hidden bg-[#FAF5EF]'>
+            <Navbar />
+            <Hero />
+        </main>
+    );
+}
+
+export default App;
+>>>>>>> 8d89bfbf46f8086a47254edd79c4a844b4e5a5c2

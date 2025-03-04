@@ -4,7 +4,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+<<<<<<< HEAD
     "types": ["node"],
+=======
+>>>>>>> 8d89bfbf46f8086a47254edd79c4a844b4e5a5c2
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
