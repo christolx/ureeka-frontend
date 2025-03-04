@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -8,46 +8,19 @@ const App = () => {
         <main className="relative min-h-screen w-screen overflow-x-hidden bg-[#FFFFFF] pt-16">
             <Navbar />
 
-            {/* Main Hero Section */}
-            <div className="bg-[#FDF7E9] p-10 rounded-2xl flex items-center max-w-5xl mx-auto mt-10">
-                <div className="w-1/2 pr-10">
-                    <h2 className="text-4xl font-serif font-bold text-[#5B6236]">
-                        FEEDING <span className="text-[#D1913C] font-serif text-6xl">HOPE</span>
-                    </h2>
-                    <h3 className="text-xl text-[#97A38D] mt-2 font-serif font-semibold">
-                        ONE MEAL AT A TIME.
-                    </h3>
-                    <p className="text-gray-600 mt-4">
-                        Hunger shouldn’t be a barrier to a better future. Your support helps
-                        feed families and strengthen communities. Donate today and help us
-                        <span className="bg-[#FECACA] px-2 py-1 rounded-lg font-bold text-[#9B341F] ml-2">
-                            thrive together!
-                        </span>
-                    </p>
-                    <button className="mt-6 bg-[#FFB703] text-white px-6 py-3 rounded-lg font-bold shadow-md hover:bg-[#E99C00] cursor-pointer">
-                        DONATE NOW
-                    </button>
-                </div>
-                <div className="w-1/2">
-                    <img
-                        src="src/images/feeding-hope.png" 
-                        alt="Feeding Hope"
-                        className="rounded-2xl w-full h-auto object-cover"
-                    />
-                </div>
-            </div>
+            <Hero />
 
             {/* Wrap additional sections with max-w-5xl */}
             <div className="max-w-5xl mx-auto">
 
                 {/* Hunger Awareness Section */}
                 <div className="text-[#526051] flex items-center gap-8 p-10 rounded-2xl">
-                    <img src="src/images/food-everyone.jpg" alt="Hunger Awareness" className="w-1/3 rounded-xl" />
-                    <div className="w-2/3">
-                        <h2 className="text-[#6E826D] text-3xl font-serif font-bold">
-                            A MEAL <span className="bg-[#FECACA] rounded-lg text-[#9B341F] px-2 py-1 ml-2">SHOULD NOT</span> BE FOR SOME PEOPLE!
+                    <img src="src/images/food-everyone.jpg" alt="Hunger Awareness" className="w-1/2 rounded-xl" />
+                    <div className="w-1/2">
+                        <h2 className="text-[#6E826D] text-3xl font-regular">
+                            A MEAL<span className="bg-[#FECACA] font-bold font-serif rounded-lg text-[#9B341F] px-2 py-1 ml-2">SHOULD NOT</span> BE FOR SOME PEOPLE!
                         </h2>
-                        <p className="mt-4 text-gray-600">
+                        <p className="mt-4 text-gray-600 text-l leading-relaxed">
                             It should be for <strong>all people</strong> instead! Indonesia faces a nutritional crisis with more than half of its population unable to meet the daily nutritional needs, exacerbated by the high price of healthy food and high cigarette consumption compared to animal protein. Food Loss and Food Waste also worsen the stunting rate, reducing public access to nutritious food.
                             <br /><br />
                             As such, our platform is here to connect donors with food distribution initiatives, provide the latest news, testimonials of recipients of assistance, and database programs that can be funded, in order to increase awareness and participation in supporting access to nutritious food for underprivileged families.
@@ -87,29 +60,3 @@ const App = () => {
 };
 
 export default App;
-=======
-import './App.css';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-// import { useState } from 'react';
-// import {Button} from "@/components/ui/button.tsx";
-
-const App = () => {
-    // const [count, setCount] = useState(0);
-
-    return (
-        // <div className="flex flex-col items-center justify-center min-h-screen">
-        //     <h1 className="text-3xl font-bold mb-4">Food Website</h1>
-        //     <Button onClick={()=>setCount(dynamicNumber=>dynamicNumber+1)}>
-        //         Clicked me {count} times.
-        //     </Button>
-        // </div>
-        <main className='relative min-h-screen w-screen overflow-x-hidden bg-[#FAF5EF]'>
-            <Navbar />
-            <Hero />
-        </main>
-    );
-}
-
-export default App;
->>>>>>> 8d89bfbf46f8086a47254edd79c4a844b4e5a5c2

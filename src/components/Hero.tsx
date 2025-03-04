@@ -3,16 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const Hero = () => (
-    <div className="w-full py-20 lg:py-40 overflow-x-hidden bg-[linear-gradient(to_bottom,#F5EDD9_85%,transparent_100%)]">
+    <div className="w-full mt-10 py-5 lg:py-10 overflow-x-hidden bg-[linear-gradient(to_bottom,#F5EDD9_85%,transparent_100%)] flex items-center max-w-7xl mx-auto rounded-2xl">
         <div className="container p-4 mx-auto">
-            <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-2">
-                <div className="flex gap-4 flex-col">
+            <div className="grid grid-cols-1 gap-4 items-center lg:grid-cols-2">
+                <div className="flex gap-2 flex-col">
                     <div>
                         <Badge variant="outline" className="border-[#3b463b]">We&apos;re FoodFund!</Badge>
                     </div>
                     <div className="flex gap-4 flex-col">
                         <h1 className="text-5xl md:text-7xl max-w-lg text-[#3b463b] tracking-tighter text-left font-regular">
-                            Feeding <b><i>HOPE</i></b>, one meal at a time.
+                            Feeding <span className="text-[#D1913C] font-serif text-7xl">HOPE</span>, one meal at a time.
                         </h1>
 
                         <p className="text-xl leading-relaxed tracking-tight text-muted-foreground max-w-md text-left">
@@ -37,4 +37,4 @@ const Hero = () => (
     </div>
 );
 
-export default Hero
+export default Hero;
