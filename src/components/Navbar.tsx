@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const navigationItems = [
-        { title: "Home", href: "/", description: "", },
-        { title: "About", href: "/", description: "", },
-        { title: "Campaign", href: "/", description: "", },
-        { title: "Blog", href: "/", description: "", },
+        { title: "Home", href: "#home", description: "", },
+        { title: "About", href: "#about", description: "", },
+        { title: "Campaign", href: "#donations", description: "", },
+        { title: "Articles", href: "#articles", description: "", },
         { title: "Contact", href: "/", description: "", },
     ];
     
@@ -75,12 +75,12 @@ const Navbar = () => {
                 <div className="flex items-center justify-end w-full gap-4">
                     {/* Login Button */}
                     <Button className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer">
-                        Login
+                        User Login
                     </Button>
 
                     {/* Donate Button */}
                     <Button className="bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
-                        Donate
+                        Join as NPO
                     </Button>
                 </div>
 

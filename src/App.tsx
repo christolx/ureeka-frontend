@@ -1,6 +1,8 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Donations from "./components/Donations";
+import Articles from "./components/Articles";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -8,13 +10,15 @@ const App = () => {
         <main className="relative min-h-screen w-screen overflow-x-hidden bg-[#FFFFFF] pt-16">
             <Navbar />
 
-            <Hero />
+            <section id="home">
+                <Hero />
+            </section>
 
             {/* Wrap additional sections with max-w-5xl */}
             <div className="max-w-5xl mx-auto">
 
                 {/* Hunger Awareness Section */}
-                <div className="text-[#526051] flex items-center gap-8 p-10 rounded-2xl">
+                <section id="about" className="text-[#526051] flex items-center gap-8 p-10 rounded-2xl">
                     <img src="src/images/food-everyone.jpg" alt="Hunger Awareness" className="w-1/2 rounded-xl" />
                     <div className="w-1/2">
                         <h2 className="text-[#6E826D] text-3xl font-regular">
@@ -26,11 +30,11 @@ const App = () => {
                             As such, our platform is here to connect donors with food distribution initiatives, provide the latest news, testimonials of recipients of assistance, and database programs that can be funded, in order to increase awareness and participation in supporting access to nutritious food for underprivileged families.
                         </p>
                     </div>
-                </div>
+                </section>
 
                 {/* How Can You Help Section */}
                 <div className="mt-10">
-                    <h3 className="text-2xl font-serif font-bold">HOW CAN YOU HELP?</h3>
+                    <h3 className="text-5xl max-w-lg text-[#3b463b] tracking-tighter font-regular">HOW CAN YOU HELP?</h3>
                     <div className="flex justify-between gap-6 mt-6">
                         {/* Card 1 */}
                         <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
@@ -52,8 +56,13 @@ const App = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
+            <section id="donations">
+                <Donations />
+            </section>
+            <section id="articles">
+                <Articles />
+            </section>
             <Footer />
         </main>
     );
