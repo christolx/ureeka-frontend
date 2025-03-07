@@ -23,7 +23,7 @@ const Hero = () => (
                         <Button size="lg" className="gap-4 shadow-sm transition-all duration-150 cursor-pointer" variant="outline">
                             Contact Us <PhoneCall className="w-4 h-4" />
                         </Button>
-                        <Button size="lg" className="gap-4 bg-[#FFC316] shadow-sm hover:bg-[#ff9a16] transition-all duration-150 cursor-pointer">
+                        <Button size="lg" className="gap-4 bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
                             Donate Now <MoveRight className="w-4 h-4" />
                         </Button>
                     </div>
