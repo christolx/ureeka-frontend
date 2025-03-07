@@ -23,7 +23,7 @@ const Navbar = () => {
     const [isOpen, setOpen] = useState(false);
 
     return (
-        <header className="w-full z-40 fixed top-0 left-0 bg-background">
+        <header className="w-full z-40 fixed top-0 left-0 bg-transparent select-none">
             <div className="container relative mx-auto min-h-20 max-w-[1200px] grid grid-cols-[auto_1fr_auto] items-center gap-4 bg-[#DAEAD9] px-16 rounded-b-4xl shadow-md">
                 {/* logo */}
                 <div className="flex items-center lg:justify-center cursor-pointer">
@@ -72,7 +72,8 @@ const Navbar = () => {
                     </NavigationMenu>
                 </div>
 
-                <div className="flex items-center justify-end w-full gap-4">
+                {/* original button */}
+                <div className="items-center justify-end w-full gap-4 lg:flex md:flex hidden">
                     {/* Login Button */}
                     <Button className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer">
                         User Login
@@ -84,32 +85,41 @@ const Navbar = () => {
                     </Button>
                 </div>
 
-
                 {/* mobile navbar */}
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
-                    <Button variant="ghost" onClick={() => setOpen(!isOpen)}>
+                    <Button variant="ghost" className="hover:bg-[#ccdfca] rounded-full transition-all duration-300" onClick={() => setOpen(!isOpen)}>
                         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                     </Button>
 
                     {isOpen && (
-                        <div className="absolute top-20 border-t flex flex-col w-full left-0 bg-background shadow-lg py-4 container gap-8 lg:hidden">
+                        <div className="absolute top-20 border-t flex flex-col w-full md:w-1/4 right-0 my-2 rounded-xl bg-[#DAEAD9] shadow-md py-4 container gap-8 lg:hidden px-10">
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
-                                    <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2 hover:font-bold hover:underline transition-all duration-150">
                                         {item.href ? (
                                         <Link
                                             to={item.href}
                                             className="flex justify-between items-center"
                                         >
-                                            <span className="text-lg">{item.title}</span>
+                                            <span className="text-sm">{item.title}</span>
                                             <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                                         </Link>
                                         ) : (
-                                            <p className="text-lg">{item.title}</p>
+                                            <p className="text-sm">{item.title}</p>
                                         )}
                                     </div>
                                 </div>
                             ))}
+                            
+                            <div className="flex flex-col items-center md:items-center sm:items-center gap-2">
+                                <Button className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all w-full cursor-pointer">
+                                    User Login
+                                </Button>
+
+                                <Button className="bg-[#FFC316] hover:bg-amber-800 transition-all w-full cursor-pointer">
+                                    Join as NPO
+                                </Button>
+                            </div>
                         </div>
                     )}
                 </div>

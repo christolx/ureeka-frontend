@@ -7,27 +7,30 @@ interface NavigationItem {
   
   const navigationItems: NavigationItem[] = [
     {
-      title: "Home",
-      href: "/",
+      title: "Navigate",
+      items: [
+        { title: "Home", href: "/" },
+        { title: "About Us", href: "/aboutus" },
+        { title: "Campaigns", href: "/campaigns" },
+        { title: "Contact", href: "/contact" },
+      ],
     },
     {
-      title: "Product",
-      description: "Managing a small business today is already tough.",
+      title: "Resources",
       items: [
         { title: "Reports", href: "/reports" },
         { title: "Statistics", href: "/statistics" },
         { title: "Dashboards", href: "/dashboards" },
-        { title: "Recordings", href: "/recordings" },
+        { title: "FAQ", href: "/faq" },
       ],
     },
     {
-      title: "Company",
-      description: "Managing a small business today is already tough.",
+      title: "Get Involved",
       items: [
-        { title: "About us", href: "/about" },
+        { title: "Donate", href: "/donate" },
         { title: "Fundraising", href: "/fundraising" },
-        { title: "Investors", href: "/investors" },
-        { title: "Contact us", href: "/contact" },
+        { title: "Volunteer", href: "/volunteer" },
+        { title: "Partner", href: "/partner" },
       ],
     },
   ];
@@ -42,17 +45,17 @@ interface NavigationItem {
                 <div className="flex gap-8 flex-col items-start">
                   <div className="flex gap-2 flex-col">
                     <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                      TWBlocks™
+                      <b>FoodFund</b>
                     </h2>
                     <p className="text-lg max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                      Managing a small business today is already tough.
+                      Feeding <span className="font-medium"><i>HOPE</i></span>, one meal at a time.
                     </p>
                   </div>
                   <div className="flex gap-20 flex-row">
                     <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
-                      <p>1 Tailwind Way</p>
-                      <p>Menlo Park</p>
-                      <p>CA 94025</p>
+                      <p>Jl H Saidi 5/8</p>
+                      <p>Sumatera Utara</p>
+                      <p>Medan 20112</p>
                     </div>
                     <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-background/75 text-left">
                       <a href="/terms">Terms of service</a>
@@ -72,7 +75,7 @@ interface NavigationItem {
                             {item.title}
                           </a>
                         ) : (
-                          <p className="text-xl">{item.title}</p>
+                          <p className="text-xl font-medium">{item.title}</p>
                         )}
                         {item.items &&
                           item.items.map((subItem) => (
