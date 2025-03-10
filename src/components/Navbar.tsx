@@ -9,9 +9,12 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate()
+
     const navigationItems = [
         { title: "Home", href: "#home", description: "", },
         { title: "About", href: "#about", description: "", },
@@ -26,7 +29,7 @@ const Navbar = () => {
         <header className="w-full z-40 fixed top-0 left-0 bg-transparent select-none">
             <div className="container relative mx-auto min-h-20 max-w-[1200px] grid grid-cols-[auto_1fr_auto] items-center gap-4 bg-[#DAEAD9] px-16 rounded-b-4xl shadow-md">
                 {/* logo */}
-                <div className="flex items-center lg:justify-center cursor-pointer">
+                <div onClick={() => navigate('/')} className="flex items-center lg:justify-center cursor-pointer">
                     <img src="/src/assets/logo-sementara-removebg-preview.png" alt='FoodFund' />
                 </div>
 
@@ -75,7 +78,7 @@ const Navbar = () => {
                 {/* original button */}
                 <div className="items-center justify-end w-full gap-4 lg:flex md:flex hidden">
                     {/* Login Button */}
-                    <Button className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer">
+                    <Button onClick={() => navigate('/login')} className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer">
                         User Login
                     </Button>
 
@@ -95,7 +98,7 @@ const Navbar = () => {
                         <div className="absolute top-20 border-t flex flex-col w-full md:w-1/4 right-0 my-2 rounded-xl bg-[#DAEAD9] shadow-md py-4 container gap-8 lg:hidden px-10">
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
-                                    <div className="flex flex-col gap-2 hover:font-bold hover:underline transition-all duration-150">
+                                    <div className="flex flex-col gap-2 hover:underline">
                                         {item.href ? (
                                         <Link
                                             to={item.href}
@@ -112,7 +115,7 @@ const Navbar = () => {
                             ))}
                             
                             <div className="flex flex-col items-center md:items-center sm:items-center gap-2">
-                                <Button className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all w-full cursor-pointer">
+                                <Button onClick={() => navigate('/login')} className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all w-full cursor-pointer">
                                     User Login
                                 </Button>
 
