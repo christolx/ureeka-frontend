@@ -1,10 +1,9 @@
 const About = () => {
     return (
-        <div className="max-w-5xl mx-auto">
-            {/* Hunger Awareness Section */}
-            <section id="about" className="text-[#526051] flex items-center gap-8 p-10 rounded-2xl">
-                <img src="src/images/food-everyone.jpg" alt="Hunger Awareness" className="w-1/2 rounded-xl" />
-                <div className="w-1/2">
+        <div id="about" className="max-w-5xl mx-auto">
+            <section id="about" className="text-[#526051] flex flex-col md:flex-row items-center gap-8 p-10 rounded-2xl">
+                <img src="src/images/food-everyone.jpg" alt="Hunger Awareness" className="w-full md:w-1/2 rounded-xl" />
+                <div className="w-full md:w-1/2 text-center md:text-left">
                     <h2 className="text-[#6E826D] text-3xl font-regular">
                         A MEAL<span className="bg-[#FECACA] font-bold font-serif rounded-lg text-[#9B341F] px-2 py-1 ml-2">SHOULD NOT</span> BE FOR SOME PEOPLE!
                     </h2>
@@ -16,7 +15,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* How Can You Help Section */}
             <div className="mt-10">
                 <h3 className="text-5xl max-w-lg text-[#3b463b] tracking-tighter font-regular">HOW CAN YOU HELP?</h3>
                 <div className="flex justify-between gap-6 mt-6">

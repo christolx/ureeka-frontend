@@ -6,17 +6,17 @@ import Donations from "./components/Donations";
 import Articles from "./components/Articles";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import LoginPage from "./pages/LoginPage"; // Import your LoginPage component
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
     return (
         <Router>
-            <main className="relative min-h-screen w-screen overflow-x-hidden bg-[#FFFFFF] pt-16">
+            <main className="relative min-h-screen w-full overflow-x-hidden bg-[#FFFFFF] pt-16">
                 <Navbar />
 
                 <Routes>
                     <Route path="/" element={
-                        <>
+                        <div className="p-4">
                             <section id="home">
                                 <Hero />
                             </section>
@@ -32,13 +32,12 @@ const App = () => {
                             <section id="articles">
                                 <Articles />
                             </section>
-
-                            <Footer />
-                        </>
+                        </div>
                     } />
-
                     <Route path="/login" element={<LoginPage />} />
                 </Routes>
+
+                <Footer />
             </main>
         </Router>
     );
