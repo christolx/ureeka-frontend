@@ -1,57 +1,78 @@
 import { Button } from "@/components/ui/button";
 import {
     NavigationMenu,
-    // NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    // NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Menu, MoveRight, X } from "lucide-react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const navigationItems = [
         { title: "Home", href: "#home", description: "", },
         { title: "About", href: "#about", description: "", },
         { title: "Donations", href: "#donations", description: "", },
         { title: "Articles", href: "#articles", description: "", },
-        { title: "Contact", href: "#contact", description: "", },
+        { title: "Contact", href: "#contacts", description: "", },
     ];
     
     const [isOpen, setOpen] = useState(false);
 
+    useEffect(() => {
+        if (location.hash) {
+            setTimeout(() => {
+                const element = document.getElementById(location.hash.substring(1));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     const handleScroll = (href: string) => {
-        if (href === "#home") {
+        if (location.pathname === '/') {
+            if (href === "#home") {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            } else {
+                const section = document.getElementById(href.substring(1));
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            }
+        } else {
+            navigate(`/${href}`);
+        }
+        setOpen(false);
+    };
+
+    const handleLogoClick = () => {
+        if (location.pathname === '/') {
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
         } else {
-            const section = document.getElementById(href.substring(1));
-            if (section) {
-                section.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
+            navigate('/');
         }
-        setOpen(false);
-    }
+    };
 
     return (
         <header className="w-full z-40 fixed top-0 left-0 bg-transparent select-none">
             <div className="container relative mx-auto min-h-20 max-w-[1200px] grid grid-cols-[auto_1fr_auto] items-center gap-4 bg-[#DAEAD9] px-16 rounded-b-4xl shadow-md">
-                
-                {/* Logo */}
-                <div onClick={() => navigate('/')} className="flex items-center lg:justify-center cursor-pointer">
+                <div onClick={handleLogoClick} className="flex items-center lg:justify-center cursor-pointer">
                     <img src="/src/assets/logo-sementara-removebg-preview.png" alt='FoodFund' />
                 </div>
 
-                {/* Desktop Navbar */}
                 <div className="justify-start lg:flex hidden">
                     <NavigationMenu>
                         <NavigationMenuList className="flex gap-4">
@@ -74,20 +95,16 @@ const Navbar = () => {
                     </NavigationMenu>
                 </div>
 
-                {/* original button */}
                 <div className="items-center justify-end w-full gap-4 lg:flex md:flex hidden">
-                    {/* Login Button */}
                     <Button onClick={() => navigate('/login')} className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer">
                         User Login
                     </Button>
 
-                    {/* Donate Button */}
                     <Button className="bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
                         Join as NPO
                     </Button>
                 </div>
 
-                {/* mobile navbar */}
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
                     <Button variant="ghost" className="hover:bg-[#ccdfca] rounded-full transition-all duration-300" onClick={() => setOpen(!isOpen)}>
                         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -125,4 +142,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar
+export default Navbar;
