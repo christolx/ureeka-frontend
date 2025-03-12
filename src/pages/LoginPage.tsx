@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import EyeOpen from "../assets/icons/eye.svg";
 import EyeClose from "../assets/icons/eye-off.svg";
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -13,6 +16,10 @@ const LoginPage = () => {
 
     const [isLoginMode, setIsLoginMode] = useState(true);
 
+    useEffect(() => {
+        window.scrollTo(0,0);
+    });
+
     const handleSubmit = async () => {
         setError("");
 
@@ -22,7 +29,7 @@ const LoginPage = () => {
                 return;
             }
 
-            if (!username.trim()) {
+            if (!username || !username.trim()) {
                 setError("Username cannot be empty.");
                 return;
             }
@@ -139,11 +146,29 @@ const LoginPage = () => {
 
                 {error && <p className="text-[#a50000] text-sm mb-2">{error}</p>}
 
+                {isLoginMode ? (
+                    <div className="mb-6 px-1 flex flex-row justify-between">
+                        <button
+                            onClick={() => navigate('/forgot-password')} 
+                            className="text-[#07649b] text-sm hover:text-[#7ebee2] transition-all duration-150"
+                        >
+                            Forgot password?
+                        </button>
+
+                        <button
+                            onClick={() => navigate('/reset-password')} 
+                            className="text-[#07649b] text-sm hover:text-[#7ebee2] transition-all duration-150"
+                        >
+                            Reset password?
+                        </button>
+                    </div>
+                ) : null}
+
                 {/* sign in/login toggle */}
-                <div className="mb-6 px-1">
+                <div className="mb-6 px-1 text-center">
                     <button
                         onClick={() => setIsLoginMode((prev) => !prev)}
-                        className="text-[#07649b] text-sm font-bold hover:text-[#7ebee2] transition-all duration-150"
+                        className="text-[#034709] text-sm font-bold hover:text-[#04b813] transition-all duration-150"
                     >
                         {isLoginMode ? "Don't have an account? Sign up here!" : "Have an account already? Login here."}
                     </button>
