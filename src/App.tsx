@@ -7,6 +7,9 @@ import Articles from "./components/Articles";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import LoginPage from "./pages/LoginPage";
+import Contacts from "./components/Contacts";
+import ForgotPass from "./pages/ForgotPass";
+import ResetPass from "./pages/ResetPass";
 
 const App = () => {
     return (
@@ -32,9 +35,15 @@ const App = () => {
                             <section id="articles">
                                 <Articles />
                             </section>
+
+                            <section id="contacts">
+                                <Contacts />
+                            </section>
                         </div>
                     } />
                     <Route path="/login" element={<LoginPage />} />
+                    <Route path="/forgot-password" element={<ForgotPass />} />
+                    <Route path="/reset-password" element={<ResetPass />} />
                 </Routes>
 
                 <Footer />
