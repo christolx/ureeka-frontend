@@ -7,6 +7,7 @@ import Articles from "./components/Articles";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import LoginPage from "./pages/LoginPage";
+import NpoLogin from "./pages/NpoLogin";
 import Contacts from "./components/Contacts";
 import ForgotPass from "./pages/ForgotPass";
 import ResetPass from "./pages/ResetPass";
@@ -44,6 +45,7 @@ const App = () => {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/forgot-password" element={<ForgotPass />} />
                     <Route path="/reset-password" element={<ResetPass />} />
+                    <Route path="/npo-login" element={<NpoLogin />} />
                 </Routes>
 
                 <Footer />

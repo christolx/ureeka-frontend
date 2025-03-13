@@ -100,7 +100,7 @@ const Navbar = () => {
                         User Login
                     </Button>
 
-                    <Button className="bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
+                    <Button onClick={() => navigate('/npo-login')} className="bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
                         Join as NPO
                     </Button>
                 </div>
@@ -130,7 +130,7 @@ const Navbar = () => {
                                 <Button onClick={() => navigate('/login')} className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all w-full cursor-pointer">
                                     User Login
                                 </Button>
-                                <Button className="bg-[#FFC316] hover:bg-amber-800 transition-all w-full cursor-pointer">
+                                <Button onClick={() => navigate('/npo-login')}className="bg-[#FFC316] hover:bg-amber-800 transition-all w-full cursor-pointer">
                                     Join as NPO
                                 </Button>
                             </div>
