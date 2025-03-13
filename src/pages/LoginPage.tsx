@@ -23,7 +23,17 @@ const LoginPage = () => {
     const handleSubmit = async () => {
         setError("");
 
-        if (!isLoginMode) {
+        if (isLoginMode) {
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                setError("Enter a valid email address.");
+                return;
+            }
+
+            if (!password) {
+                setError("Password cannot be empty.");
+                return;
+            }
+        } else {
             if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
                 setError("Enter a valid email address.");
                 return;
@@ -45,27 +55,47 @@ const LoginPage = () => {
             }
         }
 
-        let endpoint = "";
+        const baseUrl = import.meta.env.VITE_API_URL;
+
+        let endpoint;
+
         if (isLoginMode) {
-            endpoint = "http://localhost:5139/account/login";
+            endpoint = `${baseUrl}/account/login?useCookies=true`;
         } else {
-            endpoint = "http://localhost:5139/account/register";
+            endpoint = `${baseUrl}/account/register`;
         }
 
         try {
             const response = await fetch(endpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(isLoginMode ? { username, password } : { email, username, password }),
+                body: JSON.stringify(isLoginMode ? { email, password } : { email, username, password }),
+                credentials: "include" // Important for cookies to be sent and stored
             });
 
-            if (!response.ok) throw new Error("Request failed: " + response.statusText);
-            const data = await response.json();
-            console.log(isLoginMode ? "Login successful" : "Registration successful", data);
+            if (!response.ok) {
+                const errorText = await response.text();
+                let errorMessage = "Authentication failed";
 
-            localStorage.setItem("token", data.token);
+                try {
+                    const errorData = JSON.parse(errorText);
+                    errorMessage = errorData.message || errorMessage;
+                } catch (e) {
+                    // If parsing fails, use the raw text if available
+                    if (errorText) errorMessage = errorText;
+                }
+
+                throw new Error(errorMessage);
+            }
+
+            console.log(isLoginMode ? "Login successful" : "Registration successful");
+
+            // No need to handle tokens, just navigate to home page
+            navigate('/');
+
         } catch (err) {
             console.error(err);
+            setError(err instanceof Error ? err.message : "Authentication failed");
         }
     };
 
@@ -82,27 +112,27 @@ const LoginPage = () => {
                     </span>
                 </div>
 
+                <label className="block text-md font-medium text-gray-700 px-1">Email</label>
+                <input
+                    type="email"
+                    placeholder="email@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="text-sm w-full p-2 mb-2 border rounded-lg"
+                />
+
                 {!isLoginMode && (
                     <>
-                        <label className="block text-md font-medium text-gray-700 px-1">Email</label>
+                        <label className="block text-md font-medium text-gray-700 px-1">Username</label>
                         <input
-                            type="email"
-                            placeholder="email@example.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text"
+                            placeholder="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             className="text-sm w-full p-2 mb-2 border rounded-lg"
                         />
                     </>
                 )}
-
-                <label className="block text-md font-medium text-gray-700 px-1">Username</label>
-                <input
-                    type="text"
-                    placeholder="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="text-sm w-full p-2 mb-2 border rounded-lg"
-                />
 
                 <label className="block text-md font-medium text-gray-700 px-1">Password</label>
                 <div className="relative mb-2">
@@ -149,14 +179,14 @@ const LoginPage = () => {
                 {isLoginMode ? (
                     <div className="mb-6 px-1 flex flex-row justify-between">
                         <button
-                            onClick={() => navigate('/forgot-password')} 
+                            onClick={() => navigate('/forgot-password')}
                             className="text-[#07649b] text-sm hover:text-[#7ebee2] transition-all duration-150"
                         >
                             Forgot password?
                         </button>
 
                         <button
-                            onClick={() => navigate('/reset-password')} 
+                            onClick={() => navigate('/reset-password')}
                             className="text-[#07649b] text-sm hover:text-[#7ebee2] transition-all duration-150"
                         >
                             Reset password?
