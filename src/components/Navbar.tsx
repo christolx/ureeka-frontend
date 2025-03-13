@@ -120,7 +120,7 @@ const Navbar = () => {
                                 <div key={item.title}>
                                     <div className="flex flex-col gap-2 hover:underline">
                                         <button
-                                            onClick={() => handleScroll(item.href)}
+                                            onClick={() => handleScroll(item.href, -75)}
                                             className="flex justify-between items-center w-full text-left"
                                         >
                                             <span className="text-sm">{item.title}</span>
