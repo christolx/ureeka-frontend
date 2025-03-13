@@ -34,7 +34,7 @@ const Navbar = () => {
         }
     }, [location]);
 
-    const handleScroll = (href: string) => {
+    const handleScroll = (href: string, offset: number) => {
         if (location.pathname === '/') {
             if (href === "#home") {
                 window.scrollTo({
@@ -44,7 +44,11 @@ const Navbar = () => {
             } else {
                 const section = document.getElementById(href.substring(1));
                 if (section) {
-                    section.scrollIntoView({
+                    const elementPosition = section.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY + offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
                         behavior: "smooth"
                     });
                 }
@@ -82,7 +86,7 @@ const Navbar = () => {
                                         <Button
                                             variant="ghost"
                                             className="relative cursor-pointer hover:bg-transparent"
-                                            onClick={() => handleScroll(item.href)}
+                                            onClick={() => handleScroll(item.href, -75)}
                                         >
                                             <span className="relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white">
                                                 {item.title}
@@ -116,7 +120,7 @@ const Navbar = () => {
                                 <div key={item.title}>
                                     <div className="flex flex-col gap-2 hover:underline">
                                         <button
-                                            onClick={() => handleScroll(item.href)}
+                                            onClick={() => handleScroll(item.href, -75)}
                                             className="flex justify-between items-center w-full text-left"
                                         >
                                             <span className="text-sm">{item.title}</span>
