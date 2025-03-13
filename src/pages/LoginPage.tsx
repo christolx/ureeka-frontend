@@ -2,23 +2,25 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import EyeOpen from "../assets/icons/eye.svg";
 import EyeClose from "../assets/icons/eye-off.svg";
+import { useAuth } from "../contexts/AuthContext";
 
 const LoginPage = () => {
     const navigate = useNavigate();
+    const { login } = useAuth(); // Use the auth context
 
-    const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [error, setError] = useState("");
+    const [email, setEmail] = useState<string>("");
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [confirmPassword, setConfirmPassword] = useState<string>("");
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+    const [error, setError] = useState<string>("");
 
-    const [isLoginMode, setIsLoginMode] = useState(true);
+    const [isLoginMode, setIsLoginMode] = useState<boolean>(true);
 
     useEffect(() => {
         window.scrollTo(0,0);
-    });
+    }, []);
 
     const handleSubmit = async () => {
         setError("");
@@ -90,7 +92,10 @@ const LoginPage = () => {
 
             console.log(isLoginMode ? "Login successful" : "Registration successful");
 
-            // No need to handle tokens, just navigate to home page
+            // Update auth state
+            login();
+
+            // Navigate to home page
             navigate('/');
 
         } catch (err) {
