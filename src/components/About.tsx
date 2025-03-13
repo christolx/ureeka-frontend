@@ -2,7 +2,7 @@ const About = () => {
     return (
         <div id="about" className="max-w-5xl mx-auto">
             <section id="about" className="text-[#526051] flex flex-col md:flex-row items-center gap-8 p-10 rounded-2xl">
-                <img src="src/images/food-everyone.jpg" alt="Hunger Awareness" className="w-full md:w-1/2 rounded-xl" />
+                <img src="/images/food-everyone.jpg" alt="Hunger Awareness" className="w-full md:w-1/2 rounded-xl" />
                 <div className="w-full md:w-1/2 text-center md:text-left">
                     <h2 className="text-[#6E826D] text-3xl font-regular">
                         A MEAL<span className="bg-[#FECACA] font-bold font-serif rounded-lg text-[#9B341F] px-2 py-1 ml-2">SHOULD NOT</span> BE FOR SOME PEOPLE!
@@ -20,19 +20,19 @@ const About = () => {
                 <div className="flex justify-between gap-6 mt-6">
                     {/* Card 1 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
-                        <img src="src/images/meal-icon.png" alt="Provide Meals" className="w-12 mb-3" />
+                        <img src="/images/meal-icon.png" alt="Provide Meals" className="w-12 mb-3" />
                         <h4 className="font-bold">PROVIDE MEALS</h4>
                         <p>Contribute to the offering of nutritious meals...</p>
                     </div>
                     {/* Card 2 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
-                        <img src="src/images/impact-icon.png" alt="Make an Impact" className="w-12 mb-3" />
+                        <img src="/images/impact-icon.png" alt="Make an Impact" className="w-12 mb-3" />
                         <h4 className="font-bold">MAKE AN IMPACT</h4>
                         <p>Giving is more than just a donation...</p>
                     </div>
                     {/* Card 3 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
-                        <img src="src/images/sustainable-icon.png" alt="Sustainable Giving" className="w-12 mb-3" />
+                        <img src="/images/sustainable-icon.png" alt="Sustainable Giving" className="w-12 mb-3" />
                         <h4 className="font-bold">SUSTAINABLE GIVING</h4>
                         <p>Consistent support creates lasting change...</p>
                     </div>

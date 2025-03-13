@@ -30,7 +30,7 @@ const Hero = () => (
                 </div>
 
                 <div className="bg-muted rounded-xl overflow-hidden w-full">
-                    <img src="/src/assets/hero-img.png" className="w-full h-full object-cover" />
+                    <img src="/images/hero-img.png" className="w-full h-full object-cover" />
                 </div>
             </div>
         </div>

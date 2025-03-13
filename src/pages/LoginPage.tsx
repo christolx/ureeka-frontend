@@ -103,7 +103,7 @@ const LoginPage = () => {
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="bg-white p-6 rounded-2xl shadow-xl w-96">
                 <div className="flex flex-col items-center">
-                    <img src="/src/assets/logo-sementara-removebg-preview.png" alt="FoodFund" />
+                    <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund" />
                     <h2 className="font-bold mt-2 text-center">
                         {isLoginMode ? "Welcome Back" : "Create an Account"}
                     </h2>
