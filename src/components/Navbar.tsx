@@ -70,7 +70,7 @@ const Navbar = () => {
         <header className="w-full z-40 fixed top-0 left-0 bg-transparent select-none">
             <div className="container relative mx-auto min-h-20 max-w-[1200px] grid grid-cols-[auto_1fr_auto] items-center gap-4 bg-[#DAEAD9] px-16 rounded-b-4xl shadow-md">
                 <div onClick={handleLogoClick} className="flex items-center lg:justify-center cursor-pointer">
-                    <img src="/src/assets/logo-sementara-removebg-preview.png" alt='FoodFund' />
+                    <img src="/images/logo-sementara-removebg-preview.png" alt='FoodFund' />
                 </div>
 
                 <div className="justify-start lg:flex hidden">

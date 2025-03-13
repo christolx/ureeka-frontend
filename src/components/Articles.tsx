@@ -16,7 +16,7 @@ export const Articles = () => (
         <div className="flex flex-col gap-2 hover:opacity-75 cursor-pointer transition-all duration-150">
           <a href="https://news.detik.com/foto-news/d-6320178/donasi-makanan-untuk-anak-anak-jalanan-di-jakarta" target="_blank">
             <div className="mb-4">
-              <img className="rounded-md aspect-video" src="/src/assets/donasi-makanan-untuk-anak-anak-jalan-di-jakarta_169.jpeg" />
+              <img className="rounded-md aspect-video" src="/images/donasi-makanan-untuk-anak-anak-jalan-di-jakarta_169.jpeg" />
             </div>
             <h3 className="text-xl tracking-tight">Donasi Makanan Untuk Anak-Anak Jalanan di Jakarta</h3>
             <p className="text-muted-foreground text-base leading-relaxed mb-3 overflow-hidden line-clamp-4 text-ellipsis">
@@ -27,7 +27,7 @@ export const Articles = () => (
         <div className="flex flex-col gap-2 hover:opacity-75 cursor-pointer transition-all duration-150">
           <a href="https://food.detik.com/info-kuliner/d-5337202/5-makanan-ini-cocok-untuk-sumbangan-korban-bencana-alam" target="_blank">
             <div className="mb-4">
-              <img className="rounded-md aspect-video" src="/src/assets/5-makanan-ini-cocok-untuk-sumbangan-korban-bencana-alam-2.jpeg" />
+              <img className="rounded-md aspect-video" src="/images/5-makanan-ini-cocok-untuk-sumbangan-korban-bencana-alam-2.jpeg" />
             </div>
             <h3 className="text-xl tracking-tight">5 Makanan Ini Cocok Untuk Sumbangan Korban Bencana Alam</h3>
             <p className="text-muted-foreground text-base leading-relaxed mb-3 overflow-hidden line-clamp-4 text-ellipsis">
@@ -38,7 +38,7 @@ export const Articles = () => (
         <div className="flex flex-col gap-2 hover:opacity-75 cursor-pointer transition-all duration-150">
           <a href="https://food.detik.com/info-kuliner/d-7662706/mulia-restoran-ini-beri-makan-gratis-untuk-4-000-orang" target="_blank">
             <div className="mb-4">
-              <img className="rounded-md aspect-video" src="/src/assets/makanan-gratis-untuk-4000-orang.webp" />
+              <img className="rounded-md aspect-video" src="/images/makanan-gratis-untuk-4000-orang.webp" />
             </div>
             <h3 className="text-xl tracking-tight">Mulia! Restoran Ini Beri Makan Gratis Untuk 4.000 Orang</h3>
             <p className="text-muted-foreground text-base leading-relaxed mb-3 overflow-hidden line-clamp-4 text-ellipsis">
@@ -49,7 +49,7 @@ export const Articles = () => (
         <div className="flex flex-col gap-2 hover:opacity-75 cursor-pointer transition-all duration-150">
           <a href="https://www.rri.co.id/purwokerto/ramadan/1373192/donasi-ke-dapur-umum-alternatif-amal-di-bulan-suci" target="_blank">
             <div className="mb-4">
-              <img className="rounded-md aspect-video" src="/src/assets/ht2d2di0nr22ofp.jpeg" />
+              <img className="rounded-md aspect-video" src="/images/ht2d2di0nr22ofp.jpeg" />
             </div>
             <h3 className="text-xl tracking-tight">Donasi ke Dapur Umum, Alternatif Amal di Bulan Suci</h3>
             <p className="text-muted-foreground text-base leading-relaxed mb-3 overflow-hidden line-clamp-4 text-ellipsis">
