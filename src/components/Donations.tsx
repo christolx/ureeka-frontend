@@ -1,7 +1,7 @@
 const Donations = () => (
     <div className="w-full mt-10 py-5 lg:py-10 overflow-x-hidden flex items-center max-w-7xl mx-auto rounded-2xl">
         <div className="container py-4 mx-auto">
-            <h3 className="text-5xl max-w-lg text-[#3b463b] select-none tracking-tighter font-regular">DONATE NOW.</h3>
+            <h3 className="text-5xl max-w-lg text-[#3b463b] select-none tracking-tighter font-regular">Donate <span className="text-[#D1913C] font-serif text-5xl">NOW.</span></h3>
             <div className="flex flex-wrap mt-6">
             <div className="p-4 md:w-1/3">
                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:scale-103 transition-all duration-300">

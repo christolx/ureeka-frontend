@@ -41,7 +41,7 @@ const Contacts = () => {
                 </nav>
 
                 <div className="mb-12">
-                    <h1 className="text-2xl md:text-4xl text-[#3b463b] font-bold mb-4">Let&apos;s make an impact together.</h1>
+                    <h1 className="text-3xl md:text-5xl text-[#3b463b] tracking-tighter font-regular mb-4">Let&apos;s make an impact <span className="text-[#D1913C] font-serif text-5xl">together.</span></h1>
                     <p className="text-[#627a62] mb-8 max-w-2xl">Got questions? Want to collaborate? Reach out to us and be part of a movement to end hunger.</p>
 
                     <div className="space-y-6 mb-12">

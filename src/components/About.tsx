@@ -16,7 +16,7 @@ const About = () => {
             </section>
 
             <div className="mt-10">
-                <h3 className="text-5xl max-w-lg text-[#3b463b] tracking-tighter font-regular">HOW CAN YOU HELP?</h3>
+                <h3 className="text-5xl max-w-lg text-[#3b463b] tracking-tighter font-regular">HOW CAN YOU <span className="text-[#D1913C] font-serif text-5xl">HELP?</span></h3>
                 <div className="flex justify-between gap-6 mt-6">
                     {/* Card 1 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
