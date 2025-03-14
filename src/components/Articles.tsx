@@ -1,5 +1,7 @@
+{/*
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+*/}
 
 export const Articles = () => (
   <div className="w-full mt-10 py-5 lg:py-10 overflow-x-hidden flex items-center max-w-7xl mx-auto rounded-2xl">
