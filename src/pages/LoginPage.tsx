@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import EyeOpen from "../assets/icons/eye.svg";
 import EyeClose from "../assets/icons/eye-off.svg";
-import { useAuth } from "../contexts/AuthContext";
+import {useAuth} from "../contexts/AuthContext";
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const { login } = useAuth(); // Use the auth context
+    const {login} = useAuth(); // Use the auth context
 
     const [email, setEmail] = useState<string>("");
     const [username, setUsername] = useState<string>("");
@@ -19,7 +19,7 @@ const LoginPage = () => {
     const [isLoginMode, setIsLoginMode] = useState<boolean>(true);
 
     useEffect(() => {
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     }, []);
 
     const handleSubmit = async () => {
@@ -46,7 +46,7 @@ const LoginPage = () => {
                 return;
             }
 
-            if (!password || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+            if (!password || !/^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password)) {
                 setError("Password must be at least 8 characters long and include at least one letter and one number.");
                 return;
             }
@@ -70,8 +70,8 @@ const LoginPage = () => {
         try {
             const response = await fetch(endpoint, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(isLoginMode ? { email, password } : { email, username, password }),
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(isLoginMode ? {email, password} : {email, username, password}),
                 credentials: "include" // Important for cookies to be sent and stored
             });
 
@@ -108,7 +108,7 @@ const LoginPage = () => {
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="bg-white p-6 rounded-2xl shadow-xl w-96">
                 <div className="flex flex-col items-center">
-                    <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund" />
+                    <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund"/>
                     <h2 className="font-bold mt-2 text-center">
                         {isLoginMode ? "Welcome Back" : "Create an Account"}
                     </h2>
@@ -153,7 +153,7 @@ const LoginPage = () => {
                         onClick={() => setShowPassword((prev) => !prev)}
                         className="absolute right-3 top-2/4 transform -translate-y-1/2"
                     >
-                        <img src={showPassword ? EyeOpen : EyeClose} alt="Toggle Password" className="w-5 h-5" />
+                        <img src={showPassword ? EyeOpen : EyeClose} alt="Toggle Password" className="w-5 h-5"/>
                     </button>
                 </div>
 
@@ -173,7 +173,8 @@ const LoginPage = () => {
                                 onClick={() => setShowConfirmPassword((prev) => !prev)}
                                 className="absolute right-3 top-2/4 transform -translate-y-1/2"
                             >
-                                <img src={showConfirmPassword ? EyeOpen : EyeClose} alt="Toggle Password" className="w-5 h-5" />
+                                <img src={showConfirmPassword ? EyeOpen : EyeClose} alt="Toggle Password"
+                                     className="w-5 h-5"/>
                             </button>
                         </div>
                     </>
