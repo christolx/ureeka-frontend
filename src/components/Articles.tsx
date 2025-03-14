@@ -8,9 +8,11 @@ export const Articles = () => (
         <h4 className="text-3xl md:text-5xl tracking-tighter text-[#3b463b] max-w-xl font-regular select-none">
         <span className="text-[#D1913C] font-serif text-5xl">RELEVANT</span> ARTICLES :
         </h4>
+        {/*
         <Button className="gap-4 bg-[#ffffff] hover:bg-[#E99C00] border border-black text-black transition-all duration-150 cursor-pointer">
           View all articles <MoveRight className="w-4 h-4" />
         </Button>
+        */}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div className="flex flex-col gap-2 hover:opacity-75 cursor-pointer transition-all duration-150">
