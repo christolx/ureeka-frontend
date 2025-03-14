@@ -6,7 +6,7 @@ export const Articles = () => (
     <div className="container mx-auto flex flex-col gap-14">
       <div className="flex w-full flex-col sm:flex-row sm:justify-between sm:items-center gap-8">
         <h4 className="text-3xl md:text-5xl tracking-tighter text-[#3b463b] max-w-xl font-regular select-none">
-        <span className="text-[#D1913C] font-serif text-5xl">Latest</span> articles:
+        <span className="text-[#D1913C] font-serif text-5xl">RELEVANT</span> ARTICLES :
         </h4>
         <Button className="gap-4 bg-[#ffffff] hover:bg-[#E99C00] border border-black text-black transition-all duration-150 cursor-pointer">
           View all articles <MoveRight className="w-4 h-4" />

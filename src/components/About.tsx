@@ -5,10 +5,10 @@ const About = () => {
                 <img src="/images/food-everyone.jpg" alt="Hunger Awareness" className="w-full md:w-1/2 rounded-xl" />
                 <div className="w-full md:w-1/2 text-center md:text-left">
                     <h2 className="text-[#6E826D] text-3xl font-regular">
-                        A MEAL<span className="bg-[#FECACA] font-bold font-serif rounded-lg text-[#9B341F] px-2 py-1 ml-2">SHOULD NOT</span> BE FOR SOME PEOPLE!
+                        A MEAL<span className="bg-[#FECACA] font-bold font-serif rounded-lg text-[#9B341F] px-2 py-1 ml-2">SHOULD NOT</span> BE RESTRICTED FOR SOME PEOPLE!
                     </h2>
                     <p className="mt-4 text-gray-600 text-l leading-relaxed">
-                        It should be for <strong>all people</strong> instead! Indonesia faces a nutritional crisis with more than half of its population unable to meet the daily nutritional needs, exacerbated by the high price of healthy food and high cigarette consumption compared to animal protein. Food Loss and Food Waste also worsen the stunting rate, reducing public access to nutritious food.
+                        It should be <strong>available for everyone</strong> instead! Indonesia faces a nutritional crisis with more than half of its population unable to meet the daily nutritional needs, exacerbated by the high price of healthy food and high cigarette consumption compared to animal protein. Food Loss and Food Waste also worsen the stunting rate, reducing public access to nutritious food.
                         <br /><br />
                         As such, our platform is here to connect donors with food distribution initiatives, provide the latest news, testimonials of recipients of assistance, and database programs that can be funded, in order to increase awareness and participation in supporting access to nutritious food for underprivileged families.
                     </p>
