@@ -96,7 +96,7 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
         } catch (error) {
             console.error("Payment error:", error);
             toast.error("Something went wrong", {
-                description: "Please try again later."
+                description: <span className={"text-red-600"}>Unauthorized : Login First.</span>
             });
             setLoading(false);
         }
