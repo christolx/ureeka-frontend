@@ -8,20 +8,28 @@ import {
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+
+interface NavigationItem {
+    title: string;
+    href: string;
+    description: string;
+}
 
 const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { isAuthenticated, logout } = useAuth(); // Use the auth context
 
-    const navigationItems = [
+    const navigationItems: NavigationItem[] = [
         { title: "Home", href: "#home", description: "", },
         { title: "About", href: "#about", description: "", },
         { title: "Donations", href: "#donations", description: "", },
         { title: "Articles", href: "#articles", description: "", },
         { title: "Contact", href: "#contacts", description: "", },
     ];
-    
-    const [isOpen, setOpen] = useState(false);
+
+    const [isOpen, setOpen] = useState<boolean>(false);
 
     useEffect(() => {
         if (location.hash) {
@@ -46,7 +54,7 @@ const Navbar = () => {
                 if (section) {
                     const elementPosition = section.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.scrollY + offset;
-                    
+
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: "smooth"
@@ -68,6 +76,11 @@ const Navbar = () => {
         } else {
             navigate('/');
         }
+    };
+
+    const handleLogout = async () => {
+        await logout();
+        navigate('/');
     };
 
     return (
@@ -100,13 +113,21 @@ const Navbar = () => {
                 </div>
 
                 <div className="items-center justify-end w-full gap-4 lg:flex md:flex hidden">
-                    <Button onClick={() => navigate('/login')} className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer">
-                        User Login
-                    </Button>
-
-                    <Button onClick={() => navigate('/npo-login')} className="bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
-                        Join as NPO
-                    </Button>
+                    {isAuthenticated ? (
+                        <Button
+                            onClick={handleLogout}
+                            className="bg-[#ffffff] border border-red-500 text-black hover:bg-red-500 hover:text-white transition-all cursor-pointer"
+                        >
+                            Logout
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={() => navigate('/login')}
+                            className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all cursor-pointer"
+                        >
+                            User Login
+                        </Button>
+                    )}
                 </div>
 
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
@@ -129,12 +150,24 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             ))}
-                            
+
                             <div className="flex flex-col items-center md:items-center sm:items-center gap-2">
-                                <Button onClick={() => navigate('/login')} className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all w-full cursor-pointer">
-                                    User Login
-                                </Button>
-                                <Button onClick={() => navigate('/npo-login')}className="bg-[#FFC316] hover:bg-amber-800 transition-all w-full cursor-pointer">
+                                {isAuthenticated ? (
+                                    <Button
+                                        onClick={handleLogout}
+                                        className="bg-[#ffffff] border border-red-500 text-black hover:bg-red-500 hover:text-white transition-all w-full cursor-pointer"
+                                    >
+                                        Logout
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        onClick={() => navigate('/login')}
+                                        className="bg-[#ffffff] border border-orange-500 text-black hover:bg-[#E99C00] transition-all w-full cursor-pointer"
+                                    >
+                                        User Login
+                                    </Button>
+                                )}
+                                <Button onClick={() => navigate('/npo-login')} className="bg-[#FFC316] hover:bg-amber-800 transition-all w-full cursor-pointer">
                                     Join as NPO
                                 </Button>
                             </div>

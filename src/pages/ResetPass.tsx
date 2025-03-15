@@ -1,8 +1,9 @@
 import { useState, useEffect, FormEvent } from "react";
 
 const ResetPassword = () => {
+    const baseUrl = import.meta.env.VITE_API_URL;
     const [email, setEmail] = useState("");
-    const [code, setCode] = useState("");
+    const [resetCode, setResetCode] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
@@ -21,23 +22,23 @@ const ResetPassword = () => {
             return;
         }
 
-        if (!code) {
-            setError("Code cannot be empty.");
+        if (!resetCode) {
+            setError("Reset Code cannot be empty.");
             return;
         }
 
-        if (!newPassword || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(newPassword)) {
+        if (!newPassword || !/^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(newPassword)) {
             setError("Password must be at least 8 characters long and include at least one letter and one number.");
             return;
         }
 
-        const endpoint = "http://localhost:5139/account/reset-password";
+        const endpoint = `${baseUrl}/account/resetPassword`;
 
         try {
             const response = await fetch(endpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, code, newPassword }),
+                body: JSON.stringify({ email, resetCode, newPassword }),
             });
 
             if (!response.ok) throw new Error("Request failed: " + response.statusText);
@@ -75,8 +76,8 @@ const ResetPassword = () => {
                         <input
                             type="text"
                             placeholder="Enter reset code"
-                            value={code}
-                            onChange={(e) => setCode(e.target.value)}
+                            value={resetCode}
+                            onChange={(e) => setResetCode(e.target.value)}
                             className="text-sm w-full p-2 mb-2 border rounded-lg"
                             required
                         />
