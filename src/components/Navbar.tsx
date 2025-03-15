@@ -128,9 +128,6 @@ const Navbar = () => {
                             User Login
                         </Button>
                     )}
-                    <Button onClick={() => navigate('/npo-login')} className="bg-[#FFC316] hover:bg-amber-800 transition-all cursor-pointer">
-                        Join as NPO
-                    </Button>
                 </div>
 
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
@@ -170,9 +167,6 @@ const Navbar = () => {
                                         User Login
                                     </Button>
                                 )}
-                                <Button onClick={() => navigate('/npo-login')} className="bg-[#FFC316] hover:bg-amber-800 transition-all w-full cursor-pointer">
-                                    Join as NPO
-                                </Button>
                             </div>
                         </div>
                     )}

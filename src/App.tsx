@@ -2,7 +2,6 @@ import "./App.css";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LoginPage from "./pages/LoginPage";
-import NpoLogin from "./pages/NpoLogin";
 import ArticlesPage from "./pages/ArticlesPage";
 import ForgotPass from "./pages/ForgotPass";
 import ResetPass from "./pages/ResetPass";
@@ -22,7 +21,6 @@ const App = () => {
                         <Route path="/login" element={<LoginPage/>}/>
                         <Route path="/forgot-password" element={<ForgotPass/>}/>
                         <Route path="/reset-password" element={<ResetPass/>}/>
-                        <Route path="/npo-login" element={<NpoLogin/>}/>
                         <Route path="/articles-page" element={<ArticlesPage/>}/>
                     </Routes>
 
