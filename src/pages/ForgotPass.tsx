@@ -1,6 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 
 const ForgotPass = () => {
+    const baseUrl = import.meta.env.VITE_API_URL;
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
@@ -19,7 +20,7 @@ const ForgotPass = () => {
             return;
         }
 
-        const endpoint = "http://localhost:5139/account/forgot-password";
+        const endpoint = `${baseUrl}/account/forgotPassword`;
 
         try {
             const response = await fetch(endpoint, {

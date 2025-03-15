@@ -17,7 +17,7 @@ const Contacts = () => {
     const contactInfo = [
         {
             type: "Email",
-            value: "wearefoodfund@gmail.com",
+            value: "foodfundcharity@outlook.com",
         },
         {
             type: "Phone",
@@ -26,20 +26,16 @@ const Contacts = () => {
         {
             type: "Address",
             value: "Jl H Saidi 5/8, Sumatera Utara, Medan, 20112",
+        },
+        {
+            type: "Discord",
+            value: "@.icemotion"
         }
     ];
 
     return (
         <div className="flex flex-col min-h-screen text-black p-4 md:p-8">
             <div className="max-w-4xl mx-auto w-full">
-                <nav className="mb-8">
-                    <button 
-                        className="py-1 px-4 rounded-full border border-black text-sm"
-                    >
-                        Contact
-                    </button>
-                </nav>
-
                 <div className="mb-12">
                     <h1 className="text-3xl md:text-5xl text-[#3b463b] font-regular mb-4">Let&apos;s make an impact <span className="text-[#D1913C] font-serif text-5xl">together.</span></h1>
                     <p className="text-[#627a62] mb-8 max-w-2xl">Got questions? Want to collaborate? Reach out to us and be part of a movement to end hunger!</p>
