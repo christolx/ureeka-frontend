@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import LoginPage from "./pages/LoginPage";
 import NpoLogin from "./pages/NpoLogin";
+import ArticlesPage from "./pages/ArticlesPage";
 import Contacts from "./components/Contacts";
 import ForgotPass from "./pages/ForgotPass";
 import ResetPass from "./pages/ResetPass";
@@ -42,6 +43,7 @@ const App = () => {
                             </section>
                         </div>
                     } />
+                    <Route path="/articles-page" element={<ArticlesPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/forgot-password" element={<ForgotPass />} />
                     <Route path="/reset-password" element={<ResetPass />} />

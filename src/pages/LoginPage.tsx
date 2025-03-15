@@ -100,8 +100,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <div className="bg-white p-6 rounded-2xl shadow-xl w-96">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-contain bg-no-repeat bg-center" style={{ backgroundImage: "url('/images/food-donation.jpg')" }}>
+            <div className="bg-[#F5EDD9] p-6 rounded-2xl shadow-xl w-96">
                 <div className="flex flex-col items-center">
                     <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund" />
                     <h2 className="font-bold mt-2 text-center">
@@ -118,7 +118,7 @@ const LoginPage = () => {
                     placeholder="email@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="text-sm w-full p-2 mb-2 border rounded-lg"
+                    className="text-sm w-full p-2 mb-2 border rounded-lg bg-[#ffffff]"
                 />
 
                 {!isLoginMode && (
@@ -129,7 +129,7 @@ const LoginPage = () => {
                             placeholder="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="text-sm w-full p-2 mb-2 border rounded-lg"
+                            className="text-sm w-full p-2 mb-2 border rounded-lg bg-[#ffffff]"
                         />
                     </>
                 )}
@@ -141,7 +141,7 @@ const LoginPage = () => {
                         placeholder="**********"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="text-sm w-full p-2 border rounded-lg pr-10"
+                        className="text-sm w-full p-2 border rounded-lg pr-10 bg-[#ffffff]" 
                     />
                     <button
                         type="button"
@@ -161,7 +161,7 @@ const LoginPage = () => {
                                 placeholder="**********"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="text-sm w-full p-2 border rounded-lg pr-10"
+                                className="text-sm w-full p-2 border rounded-lg pr-10 bg-[#ffffff]"
                             />
                             <button
                                 type="button"
@@ -206,7 +206,7 @@ const LoginPage = () => {
 
                 <button
                     onClick={handleSubmit}
-                    className="w-full bg-[#40493f] text-white p-2 rounded-md cursor-pointer hover:bg-[#1e221d] transition-all duration-150 mb-4"
+                    className="w-full bg-[#40493f] text-white p-2 rounded-md cursor-pointer hover:bg-[#6E826D] transition-all duration-150 mb-4"
                 >
                     {isLoginMode ? "Login" : "Register"}
                 </button>

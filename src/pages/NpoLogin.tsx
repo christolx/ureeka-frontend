@@ -100,8 +100,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <div className="bg-white p-6 rounded-2xl shadow-xl w-96">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-contain bg-no-repeat bg-center" style={{ backgroundImage: "url('/images/non-profit.jpeg')" }}>
+            <div className="bg-[#6E826D] p-6 rounded-2xl shadow-xl w-96">
                 <div className="flex flex-col items-center">
                     <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund" />
                     <h2 className="font-bold mt-2 text-center">
@@ -112,36 +112,36 @@ const LoginPage = () => {
                     </span>
                 </div>
 
-                <label className="block text-md font-medium text-gray-700 px-1">Organization Email</label>
+                <label className="block text-md font-medium text-[#40493f] px-1">Organization Email</label>
                 <input
                     type="email"
                     placeholder="email@example.com"
                     value={orgEmail}
                     onChange={(e) => setOrgEmail(e.target.value)}
-                    className="text-sm w-full p-2 mb-2 border rounded-lg"
+                    className="text-sm w-full p-2 mb-2 border rounded-lg bg-[#ffffff]"
                 />
 
                 {!isLoginMode && (
                     <>
-                        <label className="block text-md font-medium text-gray-700 px-1">Organization Name</label>
+                        <label className="block text-md font-medium text-[#40493f] px-1">Organization Name</label>
                         <input
                             type="text"
-                            placeholder="orgName"
+                            placeholder="Enter organization name..."
                             value={orgName}
                             onChange={(e) => setOrgName(e.target.value)}
-                            className="text-sm w-full p-2 mb-2 border rounded-lg"
+                            className="text-sm w-full p-2 mb-2 border rounded-lg bg-[#ffffff]"
                         />
                     </>
                 )}
 
-                <label className="block text-md font-medium text-gray-700 px-1">Password</label>
+                <label className="block text-md font-medium text-[#40493f] px-1">Password</label>
                 <div className="relative mb-2">
                     <input
                         type={showPassword ? "text" : "password"}
                         placeholder="**********"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="text-sm w-full p-2 border rounded-lg pr-10"
+                        className="text-sm w-full p-2 border rounded-lg pr-10 bg-[#ffffff]"
                     />
                     <button
                         type="button"
@@ -154,14 +154,14 @@ const LoginPage = () => {
 
                 {!isLoginMode && (
                     <>
-                        <label className="block text-md font-medium text-gray-700 px-1">Confirm Password</label>
+                        <label className="block text-md font-medium text-[#40493f] px-1">Confirm Password</label>
                         <div className="relative mb-2">
                             <input
                                 type={showConfirmPassword ? "text" : "password"}
                                 placeholder="**********"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="text-sm w-full p-2 border rounded-lg pr-10"
+                                className="text-sm w-full p-2 border rounded-lg pr-10 bg-[#ffffff]"
                             />
                             <button
                                 type="button"
