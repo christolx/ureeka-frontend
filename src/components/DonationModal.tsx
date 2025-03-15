@@ -12,6 +12,12 @@ interface DonationModalProps {
     onClose: () => void;
 }
 
+interface MidtransResult {
+    order_id: string;
+    status_code: string;
+    transaction_status: string;
+}
+
 const DONATION_AMOUNTS = [
     { value: "50000", label: "Rp 50,000" },
     { value: "100000", label: "Rp 100,000" },
@@ -71,17 +77,31 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
             // Open Midtrans Snap payment page
             // @ts-expect-error - Midtrans types not available
             window.snap.pay(snapToken, {
-                onSuccess: function() {
+                onSuccess: function(result: MidtransResult) {
+                    // Redirect to homepage with query parameters
+                    const redirectUrl = `/?order_id=${result.order_id}&status_code=${result.status_code}&transaction_status=${result.transaction_status}`;
+                    window.location.href = redirectUrl;
+
                     toast.success("Thank you for your donation!", {
                         description: "Your payment was successful."
                     });
                 },
-                onPending: function() {
+                onPending: function(result: MidtransResult) {
+                    // Redirect with pending status
+                    const redirectUrl = `/?order_id=${result.order_id}&status_code=${result.status_code}&transaction_status=${result.transaction_status}`;
+                    window.location.href = redirectUrl;
+
                     toast("Payment pending", {
                         description: "Please complete your payment"
                     });
                 },
-                onError: function() {
+                onError: function(result: MidtransResult | undefined) {
+                    // Redirect with error status if we have result data
+                    if (result && result.order_id) {
+                        const redirectUrl = `/?order_id=${result.order_id}&status_code=${result.status_code || "500"}&transaction_status=error`;
+                        window.location.href = redirectUrl;
+                    }
+
                     toast.error("Payment failed", {
                         description: "Please try again later"
                     });
