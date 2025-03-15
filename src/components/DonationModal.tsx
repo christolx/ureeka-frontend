@@ -29,7 +29,6 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
         try {
             setLoading(true);
 
-            // Calculate final amount
             const amount = selectedAmount === "custom"
                 ? parseInt(customAmount.replace(/[^0-9]/g, ""))
                 : parseInt(selectedAmount);
@@ -40,14 +39,11 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
                 return;
             }
 
-            // Generate order ID (timestamp + random string)
             const orderId = `DONATION-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
 
-            // Get API URL from environment variables
             const baseUrl = import.meta.env.VITE_API_URL;
             const endpoint = `${baseUrl}/Midtrans/generate-snap-token`;
 
-            // Call backend to get Midtrans snap token
             const response = await fetch(endpoint, {
                 method: "POST",
                 headers: {
@@ -65,6 +61,9 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
             }
 
             const { snapToken } = await response.json();
+
+            // Reset loading state before closing modal and opening Snap
+            setLoading(false);
 
             // Close the modal before opening Snap payment window
             onClose();
