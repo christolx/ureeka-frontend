@@ -105,9 +105,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-contain bg-no-repeat bg-center px-4"
-             style={{ backgroundImage: "url('/images/food-donation.jpg')" }}>
-            <div className="bg-[#F5EDD9] p-6 rounded-2xl shadow-xl w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="bg-[#FFFFFF] p-6 rounded-2xl shadow-xl w-full max-w-sm">
                 <div className="flex flex-col items-center">
                     <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund" className="w-24 sm:w-32"/>
                     <h2 className="font-bold mt-2 text-center text-lg sm:text-xl">

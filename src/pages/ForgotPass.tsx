@@ -40,7 +40,7 @@ const ForgotPass = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-4">
-            <div className="bg-[linear-gradient(to_bottom,#F5EDD9_85%,transparent_100%)] p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-md">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-md">
                 <h1 className="text-xl sm:text-2xl text-center font-bold mb-4">Forgot Password</h1>
 
                 <form onSubmit={handleEmail} className="w-full">
