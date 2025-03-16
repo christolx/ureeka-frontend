@@ -7,7 +7,7 @@ import ForgotPass from "./pages/ForgotPass";
 import ResetPass from "./pages/ResetPass";
 import {AuthProvider} from "@/contexts/AuthContext.tsx";
 import HomePage from "@/pages/HomePage.tsx";
-import Footer from "./components/Footer";
+import Footer from "@/components/Footer";
 
 const App = () => {
     return (

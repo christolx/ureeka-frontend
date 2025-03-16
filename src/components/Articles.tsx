@@ -6,14 +6,17 @@ const Articles = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full mt-10 py-5 lg:py-10 overflow-x-hidden flex items-center max-w-7xl mx-auto rounded-2xl">
+    <div className="w-full mt-6 py-5 lg:py-10 overflow-x-hidden flex items-center max-w-7xl mx-auto rounded-2xl">
       <div className="container mx-auto flex flex-col gap-14">
-        <div className="flex w-full flex-col sm:flex-row sm:justify-between sm:items-center gap-8">
+        <div className="flex w-full flex-col sm:flex-row sm:justify-between sm:items-center gap-8 items-center text-center sm:text-left">
           <h4 className="text-3xl md:text-5xl tracking-tighter text-[#3b463b] max-w-xl font-regular select-none">
-          <span className="text-[#D1913C] font-serif text-5xl">Latest</span> articles:
+            <span className="text-[#D1913C] font-serif">RELEVANT</span> ARTICLES:
           </h4>
-          <Button onClick={() => navigate('/articles-page')} className="gap-4 bg-[#ffffff] hover:bg-[#E99C00] border border-black text-black transition-all duration-150 cursor-pointer">
-            View all articles <MoveRight className="w-4 h-4" />
+          <Button 
+            onClick={() => navigate('/articles-page')} 
+            className="gap-4 bg-[#ffffff] hover:bg-[#E99C00] border border-black text-black transition-all duration-150 cursor-pointer"
+          >
+            View more articles <MoveRight className="w-4 h-4" />
           </Button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

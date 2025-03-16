@@ -105,27 +105,28 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-contain bg-no-repeat bg-center" style={{ backgroundImage: "url('/images/food-donation.jpg')" }}>
-            <div className="bg-[#F5EDD9] p-6 rounded-2xl shadow-xl w-96">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-contain bg-no-repeat bg-center px-4"
+             style={{ backgroundImage: "url('/images/food-donation.jpg')" }}>
+            <div className="bg-[#F5EDD9] p-6 rounded-2xl shadow-xl w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
                 <div className="flex flex-col items-center">
-                    <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund"/>
-                    <h2 className="font-bold mt-2 text-center">
+                    <img src="/images/logo-sementara-removebg-preview.png" alt="FoodFund" className="w-24 sm:w-32"/>
+                    <h2 className="font-bold mt-2 text-center text-lg sm:text-xl">
                         {isLoginMode ? "Welcome Back" : "Create an Account"}
                     </h2>
-                    <span className="text-sm mb-6">
+                    <span className="text-sm sm:text-base mb-6 text-center">
                         {isLoginMode ? "Enter your details to login." : "Sign up to get started."}
                     </span>
                 </div>
-
+    
                 <label className="block text-md font-medium text-gray-700 px-1">Email</label>
                 <input
                     type="email"
                     placeholder="email@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="text-sm w-full p-2 mb-2 border rounded-lg bg-[#ffffff]"
+                    className="text-sm w-full p-3 border rounded-lg bg-[#ffffff] focus:outline-none focus:ring-2 focus:ring-[#6E826D]"
                 />
-
+    
                 {!isLoginMode && (
                     <>
                         <label className="block text-md font-medium text-gray-700 px-1">Username</label>
@@ -134,11 +135,11 @@ const LoginPage = () => {
                             placeholder="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="text-sm w-full p-2 mb-2 border rounded-lg bg-[#ffffff]"
+                            className="text-sm w-full p-3 border rounded-lg bg-[#ffffff] focus:outline-none focus:ring-2 focus:ring-[#6E826D]"
                         />
                     </>
                 )}
-
+    
                 <label className="block text-md font-medium text-gray-700 px-1">Password</label>
                 <div className="relative mb-2">
                     <input
@@ -146,17 +147,17 @@ const LoginPage = () => {
                         placeholder="**********"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="text-sm w-full p-2 border rounded-lg pr-10 bg-[#ffffff]" 
+                        className="text-sm w-full p-3 border rounded-lg pr-12 bg-[#ffffff] focus:outline-none focus:ring-2 focus:ring-[#6E826D]" 
                     />
                     <button
                         type="button"
                         onClick={() => setShowPassword((prev) => !prev)}
-                        className="absolute right-3 top-2/4 transform -translate-y-1/2"
+                        className="absolute right-3 top-2/4 transform -translate-y-1/2 w-6 h-6"
                     >
-                        <img src={showPassword ? EyeOpen : EyeClose} alt="Toggle Password" className="w-5 h-5"/>
+                        <img src={showPassword ? EyeOpen : EyeClose} alt="Toggle Password"/>
                     </button>
                 </div>
-
+    
                 {!isLoginMode && (
                     <>
                         <label className="block text-md font-medium text-gray-700 px-1">Confirm Password</label>
@@ -166,31 +167,30 @@ const LoginPage = () => {
                                 placeholder="**********"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="text-sm w-full p-2 border rounded-lg pr-10 bg-[#ffffff]"
+                                className="text-sm w-full p-3 border rounded-lg pr-12 bg-[#ffffff] focus:outline-none focus:ring-2 focus:ring-[#6E826D]"
                             />
                             <button
                                 type="button"
                                 onClick={() => setShowConfirmPassword((prev) => !prev)}
-                                className="absolute right-3 top-2/4 transform -translate-y-1/2"
+                                className="absolute right-3 top-2/4 transform -translate-y-1/2 w-6 h-6"
                             >
-                                <img src={showConfirmPassword ? EyeOpen : EyeClose} alt="Toggle Password"
-                                     className="w-5 h-5"/>
+                                <img src={showConfirmPassword ? EyeOpen : EyeClose} alt="Toggle Password"/>
                             </button>
                         </div>
                     </>
                 )}
-
+    
                 {error && <p className="text-[#a50000] text-sm mb-2">{error}</p>}
-
+    
                 {isLoginMode ? (
-                    <div className="mb-6 px-1 flex flex-row justify-between">
+                    <div className="mb-6 px-1 flex flex-col sm:flex-row justify-between text-center sm:text-left">
                         <button
                             onClick={() => navigate('/forgot-password')}
                             className="text-[#07649b] text-sm hover:text-[#7ebee2] transition-all duration-150"
                         >
                             Forgot password?
                         </button>
-
+    
                         <button
                             onClick={() => navigate('/reset-password')}
                             className="text-[#07649b] text-sm hover:text-[#7ebee2] transition-all duration-150"
@@ -199,7 +199,7 @@ const LoginPage = () => {
                         </button>
                     </div>
                 ) : null}
-
+    
                 {/* sign in/login toggle */}
                 <div className="mb-6 px-1 text-center">
                     <button
@@ -209,16 +209,16 @@ const LoginPage = () => {
                         {isLoginMode ? "Don't have an account? Sign up here!" : "Have an account already? Login here."}
                     </button>
                 </div>
-
+    
                 <button
                     onClick={handleSubmit}
-                    className="w-full bg-[#40493f] text-white p-2 rounded-md cursor-pointer hover:bg-[#6E826D] transition-all duration-150 mb-4"
+                    className="w-full bg-[#40493f] text-white p-3 rounded-md cursor-pointer hover:bg-[#6E826D] transition-all duration-150 mb-4"
                 >
                     {isLoginMode ? "Login" : "Register"}
                 </button>
             </div>
         </div>
-    );
+    );    
 };
 
 export default LoginPage;

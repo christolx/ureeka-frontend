@@ -46,129 +46,91 @@ const DonationModal = ({ isOpen, onClose }: DonationModalProps) => {
             }
 
             const orderId = `DONATION-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
-
             const baseUrl = import.meta.env.VITE_API_URL;
             const endpoint = `${baseUrl}/Midtrans/generate-snap-token`;
 
             const response = await fetch(endpoint, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                credentials: "include", // Send cookies
-                body: JSON.stringify({
-                    orderId,
-                    amount
-                })
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ orderId, amount })
             });
 
-            if (!response.ok) {
-                throw new Error("Failed to generate payment token");
-            }
+            if (!response.ok) throw new Error("Failed to generate payment token");
 
             const { snapToken } = await response.json();
-
-            // Reset loading state before closing modal and opening Snap
             setLoading(false);
-
-            // Close the modal before opening Snap payment window
             onClose();
 
-            // Open Midtrans Snap payment page
             // @ts-expect-error - Midtrans types not available
             window.snap.pay(snapToken, {
-                onSuccess: function(result: MidtransResult) {
-                    // Redirect to homepage with query parameters
-                    const redirectUrl = `/?order_id=${result.order_id}&status_code=${result.status_code}&transaction_status=${result.transaction_status}`;
-                    window.location.href = redirectUrl;
-
-                    toast.success("Thank you for your donation!", {
-                        description: "Your payment was successful."
-                    });
+                onSuccess: (result: MidtransResult) => {
+                    window.location.href = `/?order_id=${result.order_id}&status_code=${result.status_code}&transaction_status=${result.transaction_status}`;
+                    toast.success("Thank you for your donation!", { description: "Your payment was successful." });
                 },
-                onPending: function(result: MidtransResult) {
-                    // Redirect with pending status
-                    const redirectUrl = `/?order_id=${result.order_id}&status_code=${result.status_code}&transaction_status=${result.transaction_status}`;
-                    window.location.href = redirectUrl;
-
-                    toast("Payment pending", {
-                        description: "Please complete your payment"
-                    });
+                onPending: (result: MidtransResult) => {
+                    window.location.href = `/?order_id=${result.order_id}&status_code=${result.status_code}&transaction_status=${result.transaction_status}`;
+                    toast("Payment pending", { description: "Please complete your payment" });
                 },
-                onError: function(result: MidtransResult | undefined) {
-                    // Redirect with error status if we have result data
-                    if (result && result.order_id) {
-                        const redirectUrl = `/?order_id=${result.order_id}&status_code=${result.status_code || "500"}&transaction_status=error`;
-                        window.location.href = redirectUrl;
+                onError: (result?: MidtransResult) => {
+                    if (result?.order_id) {
+                        window.location.href = `/?order_id=${result.order_id}&status_code=${result.status_code || "500"}&transaction_status=error`;
                     }
-
-                    toast.error("Payment failed", {
-                        description: "Please try again later"
-                    });
+                    toast.error("Payment failed", { description: "Please try again later" });
                 },
-                onClose: function() {
-                    toast("Payment canceled", {
-                        description: "You closed the payment window"
-                    });
+                onClose: () => {
+                    toast("Payment canceled", { description: "You closed the payment window" });
                 }
             });
         } catch (error) {
             console.error("Payment error:", error);
-            toast.error("Something went wrong", {
-                description: <span className={"text-red-600"}>Unauthorized : Login First.</span>
-            });
+            toast.error("Something went wrong", { description: <span className="text-red-600">Unauthorized: Login First.</span> });
             setLoading(false);
         }
     };
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-md">
+            <DialogContent className="w-full max-w-sm sm:max-w-md md:max-w-lg">
                 <DialogHeader>
-                    <DialogTitle className="text-2xl">Make a Donation</DialogTitle>
-                    <DialogDescription>
+                    <DialogTitle className="text-xl sm:text-2xl">Make a Donation</DialogTitle>
+                    <DialogDescription className="text-sm sm:text-base">
                         Your generosity helps feed families in need and strengthen our community.
                     </DialogDescription>
                 </DialogHeader>
 
                 <div className="py-4">
-                    <RadioGroup
-                        value={selectedAmount}
-                        onValueChange={setSelectedAmount}
-                        className="flex flex-col space-y-3"
-                    >
+                    <RadioGroup value={selectedAmount} onValueChange={setSelectedAmount} className="flex flex-col gap-2">
                         {DONATION_AMOUNTS.map((option) => (
-                            <div key={option.value} className="flex items-center space-x-2">
+                            <div key={option.value} className="flex items-center gap-2">
                                 <RadioGroupItem value={option.value} id={`amount-${option.value}`} />
-                                <Label htmlFor={`amount-${option.value}`} className="text-base">
-                                    {option.label}
-                                </Label>
+                                <Label htmlFor={`amount-${option.value}`} className="text-sm sm:text-base">{option.label}</Label>
                             </div>
                         ))}
                     </RadioGroup>
 
                     {selectedAmount === "custom" && (
                         <div className="mt-4">
-                            <Label htmlFor="custom-amount">Enter amount (IDR)</Label>
+                            <Label htmlFor="custom-amount" className="text-sm sm:text-base">Enter amount (IDR)</Label>
                             <Input
                                 id="custom-amount"
                                 type="text"
                                 placeholder="Rp 150,000"
                                 value={customAmount}
                                 onChange={(e) => setCustomAmount(e.target.value)}
-                                className="mt-1"
+                                className="mt-1 w-full"
                             />
                         </div>
                     )}
                 </div>
 
-                <div className="flex justify-end gap-3">
-                    <Button variant="outline" onClick={onClose}>
+                <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-3">
+                    <Button variant="outline" onClick={onClose} className="w-full sm:w-auto">
                         Cancel
                     </Button>
                     <Button
                         onClick={handleDonate}
-                        className="bg-[#FFC316] hover:bg-amber-800"
+                        className="w-full sm:w-auto bg-[#FFC316] hover:bg-amber-800"
                         disabled={loading}
                     >
                         {loading ? (
