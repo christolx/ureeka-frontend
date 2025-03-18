@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { MoveRight, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Toaster } from "@/components/ui/sonner";
+import {useState, useEffect} from "react";
+import {MoveRight, PhoneCall} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {Badge} from "@/components/ui/badge";
+import {Toaster} from "@/components/ui/sonner";
 import DonationModal from "@/components/DonationModal";
 
 const Hero = () => {
@@ -30,7 +30,8 @@ const Hero = () => {
 
     return (
         <>
-            <div className="w-full mt-10 py-5 lg:py-10 overflow-hidden bg-[linear-gradient(to_bottom,#F5EDD9_85%,transparent_100%)] flex items-center max-w-7xl mx-auto rounded-2xl">
+            <div
+                className="w-full mt-10 py-5 lg:py-10 overflow-hidden bg-[linear-gradient(to_bottom,#F5EDD9_85%,transparent_100%)] flex items-center max-w-7xl mx-auto rounded-2xl">
                 <div className="container p-6 mx-auto">
                     <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 items-center">
                         {/* Left Content */}
@@ -44,21 +45,29 @@ const Hero = () => {
                             </h1>
 
                             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-                                Hunger shouldn&apos;t be a barrier to a better future. Your support helps feed families and strengthen communities. 
+                                Hunger shouldn&apos;t be a barrier to a better future. Your support helps feed families
+                                and strengthen communities.
                                 Donate today and help us <b>thrive together!</b>
                             </p>
 
                             {/* Buttons */}
                             <div className="flex gap-4 flex-wrap">
-                                <Button size="lg" className="gap-3 shadow-md transition-all duration-200" variant="outline">
-                                    Contact Us <PhoneCall className="w-4 h-4" />
+                                <Button
+                                    size="lg"
+                                    className="gap-3 shadow-md transition-all duration-200"
+                                    variant="outline"
+                                    asChild
+                                >
+                                    <a href="#contacts">
+                                        Contact Us <PhoneCall className="w-4 h-4"/>
+                                    </a>
                                 </Button>
                                 <Button
                                     size="lg"
                                     className="gap-3 bg-[#FFC316] hover:bg-[#D1913C] transition-all duration-200"
                                     onClick={() => setShowDonationModal(true)}
                                 >
-                                    Donate Now <MoveRight className="w-5 h-5" />
+                                    Donate Now <MoveRight className="w-5 h-5"/>
                                 </Button>
                             </div>
                         </div>
@@ -74,10 +83,10 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <DonationModal isOpen={showDonationModal} onClose={() => setShowDonationModal(false)} />
+                <DonationModal isOpen={showDonationModal} onClose={() => setShowDonationModal(false)}/>
             </div>
 
-            <Toaster />
+            <Toaster/>
         </>
     );
 };
