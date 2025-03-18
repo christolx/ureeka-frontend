@@ -16,23 +16,23 @@ const About = () => {
             </section>
 
             <div className="mt-10">
-                <h3 className="text-5xl max-w-lg text-[#3b463b] tracking-tighter font-regular">HOW CAN YOU HELP?</h3>
-                <div className="flex justify-between gap-6 mt-6">
+                <h3 className="text-3xl md:text-5xl max-w-lg text-[#3b463b] tracking-tighter font-regular">HOW CAN YOU HELP?</h3>
+                <div className="flex justify-between gap-3 sm:gap-4 md:gap-6 mt-6">
                     {/* Card 1 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
-                        <img src="/images/meal-icon.png" alt="Provide Meals" className="w-12 mb-3" />
+                        <img src="/images/meal-icon.png" alt="Provide Meals" className="w-12 mx-auto md:mx-0 mb-3" />
                         <h4 className="font-bold">PROVIDE MEALS</h4>
                         <p>Contribute to the offering of nutritious meals...</p>
                     </div>
                     {/* Card 2 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
-                        <img src="/images/impact-icon.png" alt="Make an Impact" className="w-12 mb-3" />
+                        <img src="/images/impact-icon.png" alt="Make an Impact" className="w-12 mx-auto md:mx-0 mb-3" />
                         <h4 className="font-bold">MAKE AN IMPACT</h4>
                         <p>Giving is more than just a donation...</p>
                     </div>
                     {/* Card 3 */}
                     <div className="bg-[#FDF7E9] p-6 rounded-xl text-black flex-1">
-                        <img src="/images/sustainable-icon.png" alt="Sustainable Giving" className="w-12 mb-3" />
+                        <img src="/images/sustainable-icon.png" alt="Sustainable Giving" className="w-12 mx-auto md:mx-0 mb-3" />
                         <h4 className="font-bold">SUSTAINABLE GIVING</h4>
                         <p>Consistent support creates lasting change...</p>
                     </div>
